@@ -37,6 +37,8 @@ This is useful for visualizing tree structures, such as ASTs, in a readable text
   5. Update `guides[depth] = !is_last` so descendants know whether to keep a vertical guide at this level.
   6. Recurse into the child with `depth + 1`.
 
+* **Time complexity** is `O(N)` where `N` is the number of nodes; each node is visited once.
+
 ## Code
 
 ```zig
@@ -133,4 +135,3 @@ pub fn main() !void {
 }
 ```
 
-* **Time complexity** is `O(N)` where `N` is the number of nodes; each node is visited once.
