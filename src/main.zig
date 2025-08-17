@@ -61,11 +61,7 @@ fn printChildren(n: *const Node, guides: *Guides, depth: usize) void {
         printNodeLabel(child);
 
         // 4) Let descendants know if a guide bar must continue at `depth`.
-        //    Use `defer` to restore the previous state on return,
-        //    which makes the control flow easier to reason about.
-        const prev = guides.*[depth];
-        guides.*[depth] = !is_last; // continue bar if there are more siblings later
-        defer guides.*[depth] = prev;
+        guides.*[depth] = !is_last;
 
         // 5) Recurse into the child's subtree.
         printChildren(child, guides, depth + 1);
